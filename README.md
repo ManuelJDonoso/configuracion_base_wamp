@@ -25,3 +25,7 @@
 
 - conexion con la base de datos:
 	http://localhost/dbtest.php
+
+
+## añadir nuevos proyectos.
+- Para añadir nuevo proyectos copiar los proyectos a la ruta **C:\Apache24\htdocs**

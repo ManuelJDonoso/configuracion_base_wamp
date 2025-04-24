@@ -1,0 +1,47 @@
+.file-browser {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.file-browser__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Nuevo elemento subtitle */
+.file-browser__subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.file-browser__list {
+    list-style: none;
+    padding: 0;
+}
+
+.file-browser__item {
+    margin: 0.5rem 0;
+}
+
+.file-browser__link {
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.file-browser__item--directory .file-browser__link {
+    font-weight: bold;
+}
+
+.file-browser__item--file .file-browser__link {
+    color: #333;
+}
+
+.file-browser__item--file .file-browser__link:hover {
+    text-decoration: underline;
+}
