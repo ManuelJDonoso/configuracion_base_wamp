@@ -9,27 +9,34 @@
 <body>
     <div class="file-browser">
         <h1 class="file-browser__title">Índice de Archivos</h1>
-        <ul class="file-browser__list">
-            <?php
-            $printedSubtitle = false;
-            foreach ($items as $item):
-                if ($item['isDir'] && !$printedSubtitle):
-                    // Print subtitle before first directory
-                    echo '<h2 class="file-browser__subtitle">Proyectos</h2>';
-                    $printedSubtitle = true;
-                endif;
-            ?>
-                <?php if ($item['isDir']): ?>
+
+        <?php
+        // Separar directorios y ficheros
+        $dirs = array_filter($items, fn($i) => $i['isDir']);
+        $files = array_filter($items, fn($i) => !$i['isDir']);
+        ?>
+
+        <?php if (count($dirs) > 0): ?>
+            <h2 class="file-browser__subtitle">Proyectos</h2>
+            <ul class="file-browser__list">
+                <?php foreach ($dirs as $item): ?>
                     <li class="file-browser__item file-browser__item--directory">
                         <a class="file-browser__link" href="<?php echo $item['name']; ?>/"><?php echo $item['name']; ?>/</a>
                     </li>
-                <?php else: ?>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+        <?php if (count($files) > 0): ?>
+            <h2 class="file-browser__subtitle file-browser__subtitle--files">Archivos</h2>
+            <ul class="file-browser__list">
+                <?php foreach ($files as $item): ?>
                     <li class="file-browser__item file-browser__item--file">
                         <a class="file-browser__link" href="<?php echo $item['name']; ?>"><?php echo $item['name']; ?></a>
                     </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
     </div>
 </body>
 </html>
